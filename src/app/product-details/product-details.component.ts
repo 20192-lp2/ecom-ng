@@ -10,6 +10,7 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
+  products=products
   d;
   id;
 
@@ -22,18 +23,23 @@ export class ProductDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       this.id=params.get('id');
-      for (let p of products) {
+      for (let p of this.products) {
         if (p.id == this.id ){
           this.d = p;
         }
     }
-      
     });
   }
 
-  addToCart(product) {
-    window.alert('Your product has been added to the cart!');
-    this.cartService.create(product);
+  addToCart(d) {
+    //window.alert('Your product has been added to the cart!');
+    console.log("added to the cart");
+    this.cartService.create(d);
+
+    for (let p of this.cartService.getList() ) {
+      console.log(p.name);
+    }
+
   }
 
 }
