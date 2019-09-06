@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { CartService } from '../services/cart.service';
 
@@ -10,13 +12,36 @@ import { CartService } from '../services/cart.service';
 })
 export class CartComponent implements OnInit {
   list;
-  constructor(private route: ActivatedRoute,
-    private cartService: CartService) {
+  checkoutForm;
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
+
+  constructor(
+    private route: ActivatedRoute,
+    private cartService: CartService,
+    private formBuilder: FormBuilder
+  ) {
     this.list = this.cartService.getList();
+    this.checkoutForm = this.formBuilder.group({
+      name: '',
+      address: '',
+      email: ''
+    });
   }
 
   ngOnInit() {
+  }
 
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn('Your order has been submitted', 
+    this.profileForm.value);
+  }
+
+  updateName() {
+    //this.name.setValue('Nancy');
   }
 
 
