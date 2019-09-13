@@ -29,6 +29,11 @@ export class CartComponent implements OnInit {
       address: '',
       email: ''
     });
+
+    this.cartService.getList2().subscribe(response => {
+      console.log("data = " + JSON.stringify(response.data));
+    });
+
   }
 
   ngOnInit() {
