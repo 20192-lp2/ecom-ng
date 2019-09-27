@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
     });
 
     this.cartService.getList2().subscribe(response => {
-      console.log("data = " + JSON.stringify(response.data));
+      console.log("data = " + JSON.stringify(response));
     });
 
   }
