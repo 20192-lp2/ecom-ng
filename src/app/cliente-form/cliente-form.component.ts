@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { ClienteService } from '../services/cliente.service';
@@ -12,6 +13,7 @@ import { ClienteService } from '../services/cliente.service';
 export class ClienteFormComponent implements OnInit {
   clienteForm: FormGroup;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private formBuild: FormBuilder,
     private clienteService: ClienteService,
@@ -25,8 +27,12 @@ export class ClienteFormComponent implements OnInit {
       direccion: ['', [Validators.required]],
     });
   }
-  save(d) {
-    console.log(d);
+  save() {
+    console.log(this.clienteForm.value);
+    this.clienteService.add(this.clienteForm.value).subscribe(response => {
+      console.log(response);
+    });
+    this.router.navigate(['/clienteindex']);
   }
 
 }
