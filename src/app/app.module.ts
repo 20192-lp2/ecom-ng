@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { ClienteIndexComponent } from './cliente-index/cliente-index.component';
+import { ClienteFormComponent } from './cliente-form/cliente-form.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -21,7 +22,10 @@ const appRoutes: Routes = [
   { path: 'products/:id', component: ProductDetailsComponent },
   { path: 'shipping', component: ShippingComponent },
 
-  { path: 'clientes',  component: ClienteIndexComponent },
+  { path: 'clienteindex',  component: ClienteIndexComponent },
+  { path: 'clienteform',  component: ClienteFormComponent },
+  { path: 'clienteform/:id',  component: ClienteFormComponent },
+
   { path: '**', component: PageNotFoundComponent },
 
 ];
@@ -35,7 +39,8 @@ const appRoutes: Routes = [
     ProductDetailsComponent,
     CartComponent,
     ShippingComponent,
-    ClienteIndexComponent
+    ClienteIndexComponent,
+    ClienteFormComponent
   ],
   imports: [
     BrowserModule,

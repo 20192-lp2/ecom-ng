@@ -13,14 +13,20 @@ export class ClienteIndexComponent implements OnInit {
     private route: ActivatedRoute,
     private clienteService: ClienteService,
   ) {
-    //this.list = this.clienteService.getList();
-    this.clienteService.getList().subscribe(response => {
-      this.list=response;
-      //console.log("data = " + JSON.stringify(response));
-    });
+    this.getList();
   }
-
   ngOnInit() {
   }
-
+  private getList() {
+    this.clienteService.getList().subscribe(response => {
+      this.list=response;
+    });
+  }
+  delete(id) {
+    console.log("delete:"+id);
+    this.clienteService.delete(id).subscribe(response => {
+      console.log("de = " + JSON.stringify(response));
+      this.getList();
+    });
+  }
 }
