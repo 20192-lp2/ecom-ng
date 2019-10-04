@@ -2,7 +2,8 @@
 <form [formGroup]="clienteForm" (ngSubmit)="save()">
     <label>
         Nombre:
-        <input type="text" formControlName="nombre" required>
+        <input type="text" formControlName="nombre" 
+        [(ngModel)]="clienteForm.nombre" required>
         <div [hidden]="clienteForm.get('nombre').valid || 
         clienteForm.get('nombre').pristine" class="alert alert-danger">
             Titulo is required

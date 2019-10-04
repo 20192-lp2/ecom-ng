@@ -26,6 +26,12 @@ export class ClienteFormComponent implements OnInit {
       telefono: ['', [Validators.required]],
       direccion: ['', [Validators.required]],
     });
+    //get data
+    let id = this.route.snapshot.paramMap.get('id');
+    this.clienteService.getById(id).subscribe(response => {
+      console.log(response);
+    });
+
   }
   save() {
     console.log(this.clienteForm.value);
