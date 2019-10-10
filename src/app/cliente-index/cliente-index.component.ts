@@ -13,6 +13,7 @@ export class ClienteIndexComponent implements OnInit {
     private route: ActivatedRoute,
     private clienteService: ClienteService,
   ) {
+    this.getList();
   }
   ngOnInit() {
     this.getList();
