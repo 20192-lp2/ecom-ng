@@ -1,6 +1,9 @@
 {
+    "engines": {
+    "node": "12.x",
+    },
   "name": "ecom-ng",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
