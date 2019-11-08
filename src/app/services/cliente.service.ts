@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ClienteService {
-  endPoint = 'http://localhost:8000/api/cliente';
+  endPoint = 'https://ecom-serve.herokuapp.com/api/cliente';
 
   constructor(private http: HttpClient) {
   }

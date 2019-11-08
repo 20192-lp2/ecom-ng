@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CartService {
   items = [];
-  endPoint = 'http://localhost:8000/api/cliente';
+  endPoint = 'https://ecom-serve.herokuapp.com/api/cliente';
 
   constructor(private http: HttpClient) {
 
